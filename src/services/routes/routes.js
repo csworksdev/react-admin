@@ -6,6 +6,8 @@ import {
 import App from "App";
 import AboutPage from "pages/about";
 import NotFound from "pages/404";
+import SignIn from "pages/auth/signin";
+import Signup from "pages/auth/signup";
 
 const AppRoutes = createBrowserRouter([
     {
@@ -16,6 +18,14 @@ const AppRoutes = createBrowserRouter([
     {
         path:"/about",
         element: <AboutPage/>
+    },
+    {
+        path:"/login",
+        element: <SignIn/>
+    },
+    {
+        path:"/signup",
+        element: <Signup/>
     }
 ])
   

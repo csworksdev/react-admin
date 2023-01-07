@@ -1,10 +1,9 @@
-import Layout from "layout/layout";
 import React, { useEffect } from "react";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { auth } from "services/firebase";
+import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
 
-const App = () => {
+const Home = () => {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -27,24 +26,23 @@ const App = () => {
     signOut(auth)
       .then(() => {
         // Sign-out successful.
-        navigate("/login");
+        navigate("/");
         console.log("Signed out successfully");
       })
       .catch((error) => {
         // An error happened.
       });
   };
-  return (
-    <Layout>
-      <div className="container">
-        <p>Welcome Home</p>
 
-        <div>
-          <button onClick={handleLogout}>Logout</button>
-        </div>
+  return (
+    <section>
+      <p>Welcome Home</p>
+
+      <div>
+        <button onClick={handleLogout}>Logout</button>
       </div>
-    </Layout>
+    </section>
   );
 };
 
-export default App;
+export default Home;
