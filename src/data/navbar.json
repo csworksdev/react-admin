@@ -1,0 +1,23 @@
+[
+  {
+    "name": "home",
+    "url": "/"
+  },
+  {
+    "name": "About",
+    "url": "/about"
+  },
+  {
+    "name": "Product",
+    "child": [
+      {
+        "name": "Products",
+        "url": "/product"
+      },
+      {
+        "name": "Items",
+        "url": "/item"
+      }
+    ]
+  }
+]
