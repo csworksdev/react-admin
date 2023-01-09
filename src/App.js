@@ -1,7 +1,7 @@
 import Layout from "layout/layout";
 import React, { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "services/firebase";
+import { auth } from "config/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { userSignOut } from "state/auth";

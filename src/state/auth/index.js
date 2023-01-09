@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { auth } from "services/firebase/index";
+import { auth } from "config/firebase/index";
 
 // import { NavLink, useNavigate } from "react-router-dom";
 

@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 
 // router
-import AppRoutes from "services/routes/routes";
+import AppRoutes from "config/routes/routes";
 import { RouterProvider } from "react-router-dom";
 
 // redux
