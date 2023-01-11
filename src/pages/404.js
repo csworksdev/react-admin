@@ -1,4 +1,4 @@
-import { ReactComponent as NotFoundLogo } from "../assets/notfound.svg";
+import NotFoundLogo from "assets/notfound.svg";
 
 const NotFound = () => {
   return (

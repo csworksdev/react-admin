@@ -1,6 +1,6 @@
 import NavData from "data/navbar.json";
 
-const loadNavbarMenu = () => {
+const NavbarMenu = () => {
   const navData = NavData;
   return (
     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -61,7 +61,7 @@ const Navigation = () => {
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            {loadNavbarMenu()}
+            <NavbarMenu />
             <form className="d-flex" role="search">
               <input
                 className="form-control me-2"
