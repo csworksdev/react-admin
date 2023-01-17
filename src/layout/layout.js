@@ -5,7 +5,8 @@ const Layout = ({ children }) => {
   return (
     <>
       <Navigation />
-      <main>{children}</main>
+      <aside style={{ maxWidth: "276px" }}>test</aside>
+      <main style={{ maxWidth: "calc(100vw - 276px)" }}>{children}</main>
       <Footer />
     </>
   );
