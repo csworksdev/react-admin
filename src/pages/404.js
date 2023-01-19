@@ -12,7 +12,7 @@ const NotFound = () => {
       <h1>Page Not Found</h1>
       <a
         href="/"
-        class="btn btn-primary btn-lg active"
+        className="btn btn-primary btn-lg active"
         role="button"
         aria-pressed="true"
       >

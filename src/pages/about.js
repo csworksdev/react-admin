@@ -2,6 +2,7 @@ import Layout from "layout/layout";
 import { useEffect } from "react";
 import { useDispatch, } from "react-redux";
 import { fetchProduct } from "state/product";
+import { PaginationFeature } from "features/pagination";
 
 const AboutPage = () => {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ const AboutPage = () => {
             className="col-9 p-2 rounded"
             style={{ backgroundColor: "green" }}
           >
-            asc
+            <PaginationFeature />
           </div>
         </div>
       </div>

@@ -4,9 +4,9 @@ const NavbarMenu = () => {
   const navData = NavData;
   return (
     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-      {navData.map((item) => {
+      {navData.map((item, key) => {
         return item.hasOwnProperty("child") ? (
-          <li className="nav-item dropdown">
+          <li key={key+1} className="nav-item dropdown">
             <a
               className="nav-link dropdown-toggle"
               href="/"
@@ -18,9 +18,9 @@ const NavbarMenu = () => {
               {item.name}
             </a>
             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-              {item.child.map((childItem, key) => {
+              {item.child.map((childItem,childKey) => {
                 return (
-                  <li id={key}>
+                  <li key={key+childKey}>
                     <a className="dropdown-item" href={childItem.url}>
                       {childItem.name}
                     </a>
@@ -30,7 +30,7 @@ const NavbarMenu = () => {
             </ul>
           </li>
         ) : (
-          <li className="nav-item">
+          <li key={key+1} className="nav-item">
             <a className="nav-link active" aria-current="page" href={item.url}>
               {item.name}
             </a>
@@ -41,11 +41,27 @@ const NavbarMenu = () => {
   );
 };
 
+const Notification = () => {
+  return (
+    <form className="d-flex" role="search">
+      <input
+        className="form-control me-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <button className="btn btn-outline-success" type="submit">
+        Search
+      </button>
+    </form>
+  );
+};
+
 const Navigation = () => {
   return (
-    <div>
+    <header className="px-5">
       <nav className="navbar navbar-expand-lg bg-light">
-        <div className="container">
+        {/* <div className="container"> */}
           <a className="navbar-brand" href="/">
             csworksdev
           </a>
@@ -62,21 +78,11 @@ const Navigation = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <NavbarMenu />
-            <form className="d-flex" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
+            <Notification />
           </div>
-        </div>
+        {/* </div> */}
       </nav>
-    </div>
+    </header>
   );
 };
 
