@@ -51,7 +51,7 @@ const Product = () => {
               {product.map((item, key) => {
                 return (
                   <div className="col-3" key={key}>
-                    <img src={item.thumbnail} style={{ width: "100px" }} />
+                    <img alt="" src={item.thumbnail} style={{ width: "100px" }} />
                     <h3 key={item.id}>{item.title}</h3>
                   </div>
                 );

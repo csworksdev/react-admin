@@ -5,24 +5,42 @@ import { axiosInstance } from "config/axios";
 
 export const slicer = createSlice({
   name: "product",
-  initialState: {},
+  initialState: {
+    loading: false,
+    error: false,
+    items: [],
+  },
   reducers: {
-    create: (state, action) => {
-      state = action.payload;
+    setLoading: (state) => {
+      state.loading = true;
+    },
+    setItems: (state, { payload }) => {
+      state.loading = false;
+      state.error = false;
+      state.items = payload;
+    },
+    setError: (state) => {
+      state.error = true;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { create } = slicer.actions;
+export const { setLoading, setItems, setError } = slicer.actions;
 
-export const fetchProduct = () => (dispatch) => {
-  //   if (state.product.value) return state.product.value;
+export const itemsSelector = (state) => state.items;
 
-  axiosInstance.get("/products").then((response) => {
-    dispatch(create(response.data));
-    console.log(response.data);
-  });
-};
+export function fetchProduct() {
+  return async (dispatch) => {
+    axiosInstance
+      .get("/products")
+      .then((response) => {
+        dispatch(setItems(response.data));
+      })
+      .catch((er) => {
+        dispatch(setError());
+      });
+  };
+}
 
 export default slicer.reducer;

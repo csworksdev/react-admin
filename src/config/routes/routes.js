@@ -19,7 +19,7 @@ const AppRoutes = createBrowserRouter([
     element: <AboutPage />,
   },
   {
-    path: "/login",
+    path: "/signin",
     element: <SignIn />,
   },
   {

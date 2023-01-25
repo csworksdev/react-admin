@@ -1,15 +1,13 @@
-import Navigation from "components/layout/navigation";
-import Footer from "components/layout/footer";
+import { useState } from "react";
+import { AppBar } from "components/layout";
 
 const Layout = ({ children }) => {
-  return (
-    <>
-      <Navigation />
-      <aside style={{ maxWidth: "276px" }}>test</aside>
-      <main style={{ maxWidth: "calc(100vw - 276px)" }}>{children}</main>
-      <Footer />
-    </>
-  );
+  const drawerWidth = 240;
+  const [open, setOpen] = useState(true);
+  const toggleDrawer = () => {
+    setOpen(!open);
+  };
+  return <>{children}</>;
 };
 
 export default Layout;

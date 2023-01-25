@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { userSignOut } from "state/auth";
 
 const App = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -16,9 +17,8 @@ const App = () => {
         navigate("/login");
       }
     });
-  }, []);
+  }, [navigate]);
 
-  const navigate = useNavigate();
 
   const handleLogout = () => {
     dispatch(userSignOut());

@@ -1,7 +1,7 @@
 import React from "react";
 
 const PerPage = () => {
-  const data = [20, 40, 80];
+  // const data = [20, 40, 80];
   return (
     <div>
       <nav aria-label="...">
@@ -10,14 +10,14 @@ const PerPage = () => {
             <span className="page-link">1</span>
           </li>
           <li className="page-item">
-            <a className="page-link" href="#">
+            {/* <a className="page-link" href="#">
               2
-            </a>
+            </a> */}
           </li>
           <li className="page-item">
-            <a className="page-link" href="#">
+            {/* <a className="page-link" href="#">
               3
-            </a>
+            </a> */}
           </li>
         </ul>
       </nav>
