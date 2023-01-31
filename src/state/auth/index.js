@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "config/firebase/index";
+import { redirect } from "react-router-dom";
 
 // import { NavLink, useNavigate } from "react-router-dom";
 
@@ -45,7 +46,7 @@ export const userSignOut = () => (dispatch) => {
       dispatch(logout());
     })
     .catch((error) => {
-      // An error happened.
+      console.log(error);
     });
 };
 

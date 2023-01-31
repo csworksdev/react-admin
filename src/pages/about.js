@@ -47,27 +47,30 @@ const AboutPage = () => {
   // console.log(productList);
 
   return (
-    <Layout>
-      <div className="container">
-        <h1>demo</h1>
+    // <Layout>
+    //   <div className="container">
+    //     <h1>demo</h1>
 
-        <div className="d-flex gap-3">
-          <div
-            className="col-3 p-2 rounded"
-            style={{ backgroundColor: "yellow" }}
-          >
-            test
-          </div>
-          <div
-            className="col-9 p-2 rounded"
-            style={{ backgroundColor: "green" }}
-          >
-            <SetFilter />
-            <PaginationFeature />
-          </div>
-        </div>
-      </div>
-    </Layout>
+    //     <div className="d-flex gap-3">
+    //       <div
+    //         className="col-3 p-2 rounded"
+    //         style={{ backgroundColor: "yellow" }}
+    //       >
+    //         test
+    //       </div>
+    //       <div
+    //         className="col-9 p-2 rounded"
+    //         style={{ backgroundColor: "green" }}
+    //       >
+    //         {/* <SetFilter /> */}
+    //         <PaginationFeature />
+    //       </div>
+    //     </div>
+    //   </div>
+    // </Layout>
+    <>
+    <h1>Test</h1>
+    </>
   );
 };
 export default AboutPage;

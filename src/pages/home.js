@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import { onAuthStateChanged, signOut } from "firebase/auth";
-import { auth } from "../firebase";
-import { useNavigate } from "react-router-dom";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "config/firebase";
+import { redirect, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { userSignOut } from "state/auth";
 
@@ -12,10 +12,10 @@ const Home = () => {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (!user) {
-        navigate("/");
+        redirect("/");
       }
     });
-  }, []);
+  });
 
   const handleLogout = () => {
     dispatch(userSignOut());

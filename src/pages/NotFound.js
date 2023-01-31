@@ -1,15 +1,16 @@
-import NotFoundLogo from "assets/notfound.svg";
+import { useRouteError } from "react-router-dom";
+import Logo from "assets/not_found.png";
 
-const NotFound = () => {
+export default function NotFound() {
+  const error = useRouteError();
   return (
     <div
       className="container d-flex flex-column align-items-center justify-content-center"
       style={{ minHeight: "100vh" }}
     >
-      <NotFoundLogo
-        style={{ width: "100%", height: "100%", maxHeight: "480px" }}
-      />
+      <img src={Logo} alt="Logo" />;
       <h1>Page Not Found</h1>
+      {error.statusText || error.message}
       <a
         href="/"
         className="btn btn-primary btn-lg active"
@@ -20,6 +21,4 @@ const NotFound = () => {
       </a>
     </div>
   );
-};
-
-export default NotFound;
+}
