@@ -5,21 +5,17 @@ import { createBrowserRouter } from "react-router-dom";
 import AboutPage from "pages/about";
 import Product from "pages/product";
 import NotFound from "pages/NotFound";
-import SignIn from "pages/auth/signin";
-import Signup from "pages/auth/signup";
 import Profile from "pages/user/profile";
 import Layout from "layout/layout";
 import Home from "pages/home";
+import SignIn from "pages/auth/signin";
+import Signup from "pages/auth/signup";
 
 const AppRoutes = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
     errorElement: <NotFound />,
-    // children: [
-    //   { path: "", element: <Home /> },
-    //   { path: "about", element: <AboutPage /> },
-    // ],
     children: [
       { index: true, element: <Home /> },
       {
@@ -34,17 +30,8 @@ const AppRoutes = createBrowserRouter([
         path: "about",
         element: <AboutPage />,
       },
-      { path: "*", element: <NotFound /> },
     ],
   },
-  // {
-  //   path: "/profile",
-  //   element: <Profile />,
-  // },
-  // {
-  //   path: "/about",
-  //   element: <AboutPage />,
-  // },
   {
     path: "/signin",
     element: <SignIn />,
@@ -53,14 +40,7 @@ const AppRoutes = createBrowserRouter([
     path: "/signup",
     element: <Signup />,
   },
+  { path: "*", element: <NotFound /> },
 ]);
 
 export default AppRoutes;
-
-// const publicRoute = () => {
-//     <rou
-// }
-
-// const protectedRoute = () => {
-
-// }

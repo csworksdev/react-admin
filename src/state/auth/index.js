@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "config/firebase/index";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 // import { NavLink, useNavigate } from "react-router-dom";
 
@@ -30,7 +30,7 @@ export const { login, logout } = slicer.actions;
 export const userSignIn = (email, password) => (dispatch) => {
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      login(userCredential.user);
+      // login(userCredential.user);
       dispatch(login(JSON.stringify(userCredential.user)));
     })
     .catch((error) => {
@@ -44,7 +44,8 @@ export const userSignOut = () => (dispatch) => {
   signOut(auth)
     .then(() => {
       dispatch(logout());
-      <Navigate to="/landing" replace />
+      <Navigate to="/signin" replace />
+      window.location.reload();
     })
     .catch((error) => {
       console.log(error);

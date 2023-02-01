@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   Avatar,
   Box,
@@ -8,14 +8,11 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import { Link, redirect, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "config/firebase";
 import { userSignOut } from "state/auth";
 
 const Notification = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [anchorElUser, setAnchorElUser] = useState();
@@ -26,22 +23,8 @@ const Notification = () => {
     setAnchorElUser(null);
   };
 
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        redirect("/");
-      } else {
-        redirect("/signin");
-      }
-    });
-  });
-
   const handleLogout = () => {
     dispatch(userSignOut());
-  };
-
-  const handleProfile = () => {
-    redirect("profile");
   };
 
   const settings = [

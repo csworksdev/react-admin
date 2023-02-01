@@ -1,8 +1,10 @@
 import { Box } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ResponsiveAppBar, Sidebar } from "components/layout";
 import { styled, useTheme } from "@mui/material/styles";
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
+import { auth } from "config/firebase";
+import ProtectedRoute from "config/routes/protected";
 
 const Layout = () => {
   const drawerWidth = 240;
@@ -41,7 +43,7 @@ const Layout = () => {
       />
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        <Outlet />
+        <ProtectedRoute />
       </Box>
     </Box>
   );

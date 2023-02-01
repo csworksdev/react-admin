@@ -1,22 +1,10 @@
-import React, { useEffect } from "react";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "config/firebase";
-import { redirect, useNavigate } from "react-router-dom";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { userSignOut } from "state/auth";
 import { Divider, Typography } from "@mui/material";
 
 const Home = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user === null) {
-        redirect("/");
-      }
-    });
-  });
 
   const handleLogout = () => {
     dispatch(userSignOut());
