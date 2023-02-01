@@ -8,7 +8,7 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import { redirect, useNavigate } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "config/firebase";
@@ -41,11 +41,11 @@ const Notification = () => {
   };
 
   const handleProfile = () => {
-    redirect("/profile");
+    redirect("profile");
   };
 
   const settings = [
-    { item: "Profile", event: handleProfile },
+    { item: "Profile", url: "profile" },
     { item: "Logout", event: handleLogout },
   ];
 
@@ -73,10 +73,13 @@ const Notification = () => {
         onClose={handleCloseUserMenu}
       >
         {settings.map((setting) => (
+
           <MenuItem key={setting.item}>
-            <Typography textAlign="center" onClick={setting.event}>
-              {setting.item}
-            </Typography>
+            <Link to={setting.url}>
+              <Typography textAlign="center" onClick={setting.event}>
+                {setting.item}
+              </Typography>
+            </Link>
           </MenuItem>
         ))}
       </Menu>

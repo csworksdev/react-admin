@@ -10,13 +10,18 @@ import { RouterProvider } from "react-router-dom";
 // redux
 import store from "state/store";
 import { Provider } from "react-redux";
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import theme from "style/theme";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Provider store={store}>
         <RouterProvider router={AppRoutes} />
-    </Provider>
+      </Provider>
+    </ThemeProvider>
   </React.StrictMode>
 );
 
