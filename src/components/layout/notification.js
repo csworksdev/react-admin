@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Avatar,
   Box,
@@ -11,9 +11,12 @@ import {
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { userSignOut } from "state/auth";
+import { auth } from "config/firebase";
+import { onAuthStateChanged } from "firebase/auth";
 
 const Notification = () => {
   const dispatch = useDispatch();
+  const [user, setUser] = useState("");
 
   const [anchorElUser, setAnchorElUser] = useState();
   const handleOpenUserMenu = (event) => {
@@ -32,11 +35,19 @@ const Notification = () => {
     { item: "Logout", event: handleLogout },
   ];
 
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser((user.email ?? user.displayName).charAt("0").toUpperCase());
+      }
+    });
+  }, []);
+
   return (
     <Box sx={{ flexGrow: 0 }}>
       <Tooltip title="Open settings">
         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-          <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+          <Avatar alt={user} src="/static/images/avatar/2.jpg" />
         </IconButton>
       </Tooltip>
       <Menu
@@ -56,7 +67,6 @@ const Notification = () => {
         onClose={handleCloseUserMenu}
       >
         {settings.map((setting) => (
-
           <MenuItem key={setting.item}>
             <Link to={setting.url}>
               <Typography textAlign="center" onClick={setting.event}>

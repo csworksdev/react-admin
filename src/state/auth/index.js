@@ -1,6 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { signInWithEmailAndPassword, signOut } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  signInWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
 import { auth } from "config/firebase/index";
 import { Navigate } from "react-router-dom";
 
@@ -32,6 +37,8 @@ export const userSignIn = (email, password) => (dispatch) => {
     .then((userCredential) => {
       // login(userCredential.user);
       dispatch(login(JSON.stringify(userCredential.user)));
+      // <Navigate to="/" replace />;
+      // window.location.reload();
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -40,15 +47,50 @@ export const userSignIn = (email, password) => (dispatch) => {
     });
 };
 
+export const userSignUp = (email, password) => (dispatch) => {
+  const auth = getAuth();
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in
+      // const user = userCredential.user;
+      dispatch(login(JSON.stringify(userCredential.user)));
+      <Navigate to="/" replace />;
+      window.location.reload();
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode, errorMessage);
+      // ..
+    });
+};
+
 export const userSignOut = () => (dispatch) => {
   signOut(auth)
     .then(() => {
       dispatch(logout());
-      <Navigate to="/signin" replace />
+      <Navigate to="/signin" replace />;
       window.location.reload();
     })
     .catch((error) => {
       console.log(error);
+    });
+};
+
+export const userDeleteAccount = () => (dispatch) => {
+  const user = getAuth().currentUser;
+
+  user
+    .delete()
+    .then(() => {
+      dispatch(login([]));
+      <Navigate to="/signin" replace />;
+      window.location.reload();
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode, errorMessage);
     });
 };
 

@@ -15,7 +15,7 @@ import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import Welcome from "assets/welcome.png";
+import Signin from "assets/signin.png";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -40,7 +40,7 @@ const SignIn = () => {
     <Container component={"main"} maxWidth="xxl" sx={{ height: "100vh" }}>
       <Grid container spacing={2} sx={{ height: "100vh", alignItems:"center" }}>
         <Grid item xs={8}>
-          <img src={Welcome} alt="" style={{width: "100%", height: "100%"}}/>
+          <img src={Signin} alt="" style={{width: "100%", height: "100%"}}/>
         </Grid>
         <Grid item xs={4} sx={{width: "80%"}}>
           <Box
