@@ -77,22 +77,6 @@ export const userSignOut = () => (dispatch) => {
     });
 };
 
-export const userDeleteAccount = () => (dispatch) => {
-  const user = getAuth().currentUser;
-
-  user
-    .delete()
-    .then(() => {
-      dispatch(login([]));
-      <Navigate to="/signin" replace />;
-      window.location.reload();
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorCode, errorMessage);
-    });
-};
 
 export const isUserLogin = (state) => state.auth.isLogin;
 

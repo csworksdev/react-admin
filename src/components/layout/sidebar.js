@@ -14,7 +14,6 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
-import ProfileCard from "components/user/profileCard";
 import { SideBarMenuList } from "data/sidebar";
 import { Link } from "react-router-dom";
 
@@ -78,7 +77,6 @@ const Sidebar = ({ open, handleDrawerClose, drawerWidth, theme }) => {
         </IconButton>
       </DrawerHeader>
       <Divider />
-      {/* <ProfileCard open={open}/> */}
       <List>
         {SideBarMenuList.map((item, index) => (
           <ListItem key={item.name} disablePadding sx={{ display: "block" }}>
